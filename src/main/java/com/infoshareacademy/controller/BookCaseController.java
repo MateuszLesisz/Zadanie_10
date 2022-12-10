@@ -1,18 +1,33 @@
 package com.infoshareacademy.controller;
 
+import com.infoshareacademy.dto.BookDto;
 import com.infoshareacademy.repository.BookDao;
 import lombok.AllArgsConstructor;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
 public class BookCaseController {
 
-    private final BookDao bookDao;
-
-    @GetMapping("books")
-    public String allBooksView() {
-        return "book-table";
+    @GetMapping("book/new")
+    public String getBook(Model model) {
+        model.addAttribute("book", new BookDto());
+        return "add-book";
     }
+
+    @PostMapping("book/new")
+    public String sendBook(@ModelAttribute("book") BookDto bookDto,
+                            BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "add-book";
+        }
+        //book service -> create book
+        return "add-book-success";
+    }
+
 }
