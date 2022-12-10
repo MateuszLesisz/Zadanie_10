@@ -23,6 +23,7 @@ public class BookEntity {
 
     @Column
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @Column
