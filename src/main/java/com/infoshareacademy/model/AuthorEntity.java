@@ -20,9 +20,4 @@ public class AuthorEntity {
     @Column
     @NotNull
     private String name;
-
-    @Column
-    @NotNull
-    private String lastname;
-
 }
