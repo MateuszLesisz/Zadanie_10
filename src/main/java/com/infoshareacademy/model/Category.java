@@ -11,7 +11,6 @@ public enum Category {
 
     private final String values;
 
-
     Category(String values) {
         this.values = values;
     }

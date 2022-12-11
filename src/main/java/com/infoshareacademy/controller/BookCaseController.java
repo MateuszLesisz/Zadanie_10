@@ -24,7 +24,7 @@ public class BookCaseController {
 
     @PostMapping("book/new")
     public String sendBook(@ModelAttribute("book") BookDto bookDto,
-                            BindingResult bindingResult) {
+                           BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "add-book";
         }
@@ -33,7 +33,7 @@ public class BookCaseController {
     }
 
     @GetMapping()
-    public String getMainPage(){
+    public String getMainPage() {
         return "main-page";
     }
 }

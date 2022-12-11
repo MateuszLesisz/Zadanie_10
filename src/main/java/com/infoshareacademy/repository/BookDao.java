@@ -25,13 +25,13 @@ public class BookDao {
 
     public void delete(Long id) {
         Book book = findById(id);
-        if(book != null) {
+        if (book != null) {
             entityManager.remove(book);
         }
     }
 
     public Book update(Book book) {
         entityManager.merge(book);
-            return book;
+        return book;
     }
 }

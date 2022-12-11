@@ -24,7 +24,7 @@ public class AuthorDao {
 
     public void delete(Long id) {
         Auhtor auhtor = findById(id);
-        if(auhtor != null) {
+        if (auhtor != null) {
             entityManager.remove(auhtor);
         }
     }
