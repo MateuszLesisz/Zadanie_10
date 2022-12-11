@@ -45,16 +45,8 @@
     <br>
     <br>
 
-    <label th:for="author_input" th:text="#{form.page.author}"></label>
-    <br>
-    <div th:class="'alert alert-danger'" th:if="${#fields.hasErrors('author')}">
-        <ul>
-            <li th:each="err : ${#fields.errors('author')}" th:text="${err}"></li>
-        </ul>
-    </div>
 
-    <form th:object="${author}" th:action="@{/author/new}" th:method="post">
-    <input type="number" id="author_input" th:field="*{}">
+
 
 
     <br>
