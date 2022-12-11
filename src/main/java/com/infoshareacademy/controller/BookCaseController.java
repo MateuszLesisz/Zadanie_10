@@ -1,7 +1,6 @@
 package com.infoshareacademy.controller;
 
 import com.infoshareacademy.dto.BookDto;
-import com.infoshareacademy.repository.BookDao;
 import com.infoshareacademy.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @AllArgsConstructor
@@ -31,6 +29,7 @@ public class BookCaseController {
             return "add-book";
         }
        bookService.createBook(bookDto);
+
         return "add-book-success";
     }
 }

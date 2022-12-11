@@ -1,6 +1,6 @@
 package com.infoshareacademy.repository;
 
-import com.infoshareacademy.model.BookEntity;
+import com.infoshareacademy.model.Book;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,24 +14,24 @@ public class BookDao {
     private EntityManager entityManager;
 
     @Transactional
-    public BookEntity saveBook(BookEntity bookEntity) {
-        entityManager.persist(bookEntity);
-        return bookEntity;
+    public Book saveBook(Book book) {
+        entityManager.persist(book);
+        return book;
     }
 
-    public BookEntity findById(Long id) {
-        return entityManager.find(BookEntity.class, id);
+    public Book findById(Long id) {
+        return entityManager.find(Book.class, id);
     }
 
     public void delete(Long id) {
-        BookEntity bookEntity = findById(id);
-        if(bookEntity != null) {
-            entityManager.remove(bookEntity);
+        Book book = findById(id);
+        if(book != null) {
+            entityManager.remove(book);
         }
     }
 
-    public BookEntity update(BookEntity bookEntity) {
-        entityManager.merge(bookEntity);
-            return bookEntity;
+    public Book update(Book book) {
+        entityManager.merge(book);
+            return book;
     }
 }

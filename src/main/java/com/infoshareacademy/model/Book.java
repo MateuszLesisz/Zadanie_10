@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Builder
-public class BookEntity {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class BookEntity {
     @Enumerated(EnumType.STRING)
     private ForKids forKids;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id")
-    private AuthorEntity author;
+    @Column
+    @NotNull
+    private String author;
 }
