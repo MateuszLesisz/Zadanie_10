@@ -25,11 +25,15 @@ public class BookCaseController {
     @PostMapping("book/new")
     public String sendBook(@ModelAttribute("book") BookDto bookDto,
                             BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "add-book";
         }
-       bookService.createBook(bookDto);
-
+        bookService.createBook(bookDto);
         return "add-book-success";
+    }
+
+    @GetMapping()
+    public String getMainPage(){
+        return "main-page";
     }
 }

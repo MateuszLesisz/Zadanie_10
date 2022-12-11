@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{formPage.title}"></title>
 </head>
 <body>
+
+<a th:href = "@{/}">
+    <button th:text="#{add.new.book}">
+    </button>
+</a>
+
 
 </body>
 </html>
