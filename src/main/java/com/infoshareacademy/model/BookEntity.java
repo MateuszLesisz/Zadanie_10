@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@Builder
 public class BookEntity {
 
     @Id
@@ -32,7 +33,8 @@ public class BookEntity {
 
     @Column
     @NotNull
-    private boolean forKids;
+    @Enumerated(EnumType.STRING)
+    private ForKids forKids;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")

@@ -1,6 +1,8 @@
 package com.infoshareacademy.repository;
 
+import com.infoshareacademy.model.BookEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,24 +13,25 @@ public class BookDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public BookDao saveBook(BookDao bookDao) {
-        entityManager.persist(bookDao);
-        return bookDao;
+    @Transactional
+    public BookEntity saveBook(BookEntity bookEntity) {
+        entityManager.persist(bookEntity);
+        return bookEntity;
     }
 
-    public BookDao findById(Long id) {
-        return entityManager.find(BookDao.class, id);
+    public BookEntity findById(Long id) {
+        return entityManager.find(BookEntity.class, id);
     }
 
     public void delete(Long id) {
-        BookDao bookDao = findById(id);
-        if(bookDao != null) {
-            entityManager.remove(bookDao);
+        BookEntity bookEntity = findById(id);
+        if(bookEntity != null) {
+            entityManager.remove(bookEntity);
         }
     }
 
-    public BookDao update(BookDao bookDao) {
-        entityManager.merge(bookDao);
-            return bookDao;
+    public BookEntity update(BookEntity bookEntity) {
+        entityManager.merge(bookEntity);
+            return bookEntity;
     }
 }

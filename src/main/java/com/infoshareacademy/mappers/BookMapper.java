@@ -11,7 +11,7 @@ public class BookMapper {
         bookDto.setTitle(bookEntity.getTitle());
         bookDto.setCategory(bookEntity.getCategory());
         bookDto.setPages(bookEntity.getPages());
-        bookDto.setForKids(bookEntity.isForKids());
+        bookDto.setForKids(bookEntity.getForKids());
         return bookDto;
     }
 
@@ -21,7 +21,7 @@ public class BookMapper {
         bookEntity.setTitle(bookEntity.getTitle());
         bookEntity.setCategory(bookEntity.getCategory());
         bookEntity.setPages(bookEntity.getPages());
-        bookEntity.setForKids(bookDto.isForKids());
+        bookEntity.setForKids(bookDto.getForKids());
         return bookEntity;
     }
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{formPage.title}"></title>
+    <link th:href="@{form.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<br>
+<form th:object="${book}" th:action="@{/book/new}" th:method="post">
+
+    <label th:for="title_input" th:text="#{form.page.title}"> </label><br>
+    <textarea type="text" id="title_input" th:field="*{title}"></textarea><br>
+    <br>
+
+    <label th:for="category_input" th:text="#{form.page.category}"></label><br>
+    <select id="category_input" th:field="*{category}">
+        <option th:each="categoryOption : ${T(com.infoshareacademy.model.Category).values()}"
+                th:value="${categoryOption}" th:text="${categoryOption.values}"
+        ></option>
+    </select>
+
+    <br>
+    <br>
+
+    <label th:for="pages_input" th:text="#{form.page.pages}"></label>
+    <br>
+    <div th:class="'alert alert-danger'" th:if="${#fields.hasErrors('pages')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('pages')}" th:text="${err}"></li>
+        </ul>
+    </div>
+    <input type="number" id="pages_input" th:field="*{pages}">
+
+    <br>
+    <br>
+
+    <label th:for="forKids_input" th:text="#{form.page.for.kids}"></label><br>
+    <select id="forKids_input" th:field="*{forKids}">
+        <option th:each="forKidsOption : ${T(com.infoshareacademy.model.ForKids).values()}"
+                th:value="${forKidsOption}" th:text="${forKidsOption.values}"
+        ></option>
+    </select>
+
+    <br>
+    <br>
+    <button type="submit"th:text="#{form.page.add.button}"></button>
+
+</form>
+</body>
+</html>
