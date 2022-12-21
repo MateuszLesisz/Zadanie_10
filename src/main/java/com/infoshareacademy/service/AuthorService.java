@@ -1,6 +1,6 @@
 package com.infoshareacademy.service;
 
-import com.infoshareacademy.model.Auhtor;
+import com.infoshareacademy.model.Author;
 import com.infoshareacademy.model.Book;
 import com.infoshareacademy.repository.AuthorDao;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,11 @@ public class AuthorService {
 
     private final AuthorDao authorDao;
 
-    public void createAuthor(Book book) {
-        Auhtor author = Auhtor.builder()
-                .name(book.getAuthor())
-                .book(book)
-                .build();
-        authorDao.saveAuthor(author);
-    }
+//    public void createAuthor(Book book) {
+//        Author author = Author.builder()
+//                .name()
+//                .book(book)
+//                .build();
+//        authorDao.saveAuthor(author);
+//    }
 }

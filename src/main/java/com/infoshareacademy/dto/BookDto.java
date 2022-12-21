@@ -12,5 +12,6 @@ public class BookDto {
     private Category category;
     private int pages;
     private ForKids forKids;
-    private String author;
+    private boolean isBorrow;
+    private boolean isReturned;
 }

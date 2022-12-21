@@ -1,6 +1,5 @@
 package com.infoshareacademy.model;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,15 +11,15 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Builder
-public class Auhtor {
+public class Borrow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    @NotNull
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name = "book_id")

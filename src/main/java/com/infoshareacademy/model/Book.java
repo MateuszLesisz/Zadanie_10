@@ -38,5 +38,14 @@ public class Book {
 
     @Column
     @NotNull
-    private String author;
+    private boolean isBorrow;
+
+    @Column
+    @NotNull
+    private boolean isReturned;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
 }

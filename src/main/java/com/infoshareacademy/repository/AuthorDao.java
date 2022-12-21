@@ -1,6 +1,6 @@
 package com.infoshareacademy.repository;
 
-import com.infoshareacademy.model.Auhtor;
+import com.infoshareacademy.model.Author;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,24 +13,24 @@ public class AuthorDao {
     private EntityManager entityManager;
 
     @Transactional
-    public Auhtor saveAuthor(Auhtor auhtor) {
-        entityManager.persist(auhtor);
-        return auhtor;
+    public Author saveAuthor(Author author) {
+        entityManager.persist(author);
+        return author;
     }
 
-    public Auhtor findById(Long id) {
-        return entityManager.find(Auhtor.class, id);
+    public Author findById(Long id) {
+        return entityManager.find(Author.class, id);
     }
 
     public void delete(Long id) {
-        Auhtor auhtor = findById(id);
-        if (auhtor != null) {
-            entityManager.remove(auhtor);
+        Author author = findById(id);
+        if (author != null) {
+            entityManager.remove(author);
         }
     }
 
-    public Auhtor update(Auhtor auhtor) {
-        entityManager.merge(auhtor);
-        return auhtor;
+    public Author update(Author author) {
+        entityManager.merge(author);
+        return author;
     }
 }
