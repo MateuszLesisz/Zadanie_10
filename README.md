@@ -55,29 +55,22 @@ docker-compose down --volumes
 docker-compose down -v
 ```
 
-## Forma oddania zadania
-Utwórz nowy branch o nazwie wg konwencji `10_imieNazwisko`, np. `10_MariuszSzymanski`.<br/>  
-Pamiętaj, żeby nowy branch, utworzyć wychodząc z aktualnego brancha main.   
-Wykonaj zadanie na tym nowym branchu. <br/>   
-Utwórz Pull Request ze swojego brancha na main. <br/>   
+Zadanie ulepszone wg kryteriów:
 
-:information_source: Jeśli **nie** chcesz korzystać z przygotowanej aplikacji `Bookcase` w module `Ex10`, tylko wolisz rozwijać swoje rozwiązanie z zadania `Ex6`, to nowy branch należy utworzyć, wychodząc z brancha, na którym masz rozwiązane zadanie `Ex6`.  
-W tym wypadku utwórz Pull Request **nie na branch main**, tylko na tzw. feature branch Ex6  
-Przykład Pull Requesta na GitHubie: `6_MariuszSzymanski` :arrow_left: `10_MariuszSzymanski`
-
-Tylko tak zgłoszone zadanie podlega ocenie.  
-
-
-:heavy_exclamation_mark: Nie trzeba tworzyć nowego projektu pod to zadanie.  
-
-
----
-
-## Punktacja
-
-Do zdobycia jest :five: pkt.  
-Zadania oddane po terminie są oceniane na maksymalnie połowę punktów.
-
-#### Powodzenia!
-
-## :calendar: Termin oddania: wtorek, 22.02.2022
+Utwórz serwisy do zarządzania
+biblioteką, które umożliwią:
+- Dodawanie książek
+- Dodawania autorów
+- Dodawanie klientów
+- Wyszukanie książek wg imienia i nazwiska autora
+- Wyszukanie książek wg tytułu
+- Wypożyczenie książki klientowi
+- Wyszukanie nie oddanych książek przez klienta
+- Wyszukanie oddanych książek przez klienta
+- Zwrócenie książki
+- Kto najwięcej wypożyczał w maju 2021?
+- Kto ma najwięcej nie oddanych książek?
+- Która książka jest najpopularniejsza?
+- Jaki autor jest najpopularniejszy?
+- Jaki autor był najpopularniejszy w 2021?
+Napisz testy, które to sprawdzą
