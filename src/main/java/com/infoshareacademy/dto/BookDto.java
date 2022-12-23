@@ -13,5 +13,5 @@ public class BookDto {
     private int pages;
     private ForKids forKids;
     private boolean isBorrow;
-    private boolean isReturned;
+    private Boolean isReturned;
 }

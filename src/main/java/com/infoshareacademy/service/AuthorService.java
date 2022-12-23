@@ -1,8 +1,7 @@
 package com.infoshareacademy.service;
 
 import com.infoshareacademy.model.Author;
-import com.infoshareacademy.model.Book;
-import com.infoshareacademy.repository.AuthorDao;
+import com.infoshareacademy.repository.AuthorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +9,12 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AuthorService {
 
-    private final AuthorDao authorDao;
+    private final AuthorRepository authorRepository;
 
-//    public void createAuthor(Book book) {
-//        Author author = Author.builder()
-//                .name()
-//                .book(book)
-//                .build();
-//        authorDao.saveAuthor(author);
-//    }
+    public void createAuthor(Author author) {
+        Author authorCreator = Author.builder()
+                .name(author.getName())
+                .build();
+        authorRepository.save(authorCreator);
+    }
 }

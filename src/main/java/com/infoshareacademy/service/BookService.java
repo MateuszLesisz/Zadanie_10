@@ -1,8 +1,9 @@
 package com.infoshareacademy.service;
 
 import com.infoshareacademy.dto.BookDto;
+import com.infoshareacademy.model.Author;
 import com.infoshareacademy.model.Book;
-import com.infoshareacademy.repository.BookDao;
+import com.infoshareacademy.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +11,18 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class BookService {
 
-    private final BookDao bookDao;
-    private final AuthorService authorService;
+    private final BookRepository bookRepository;
 
-//    public void createBook(BookDto bookDto) {
-//        Book book = Book.builder()
-//                .title(bookDto.getTitle())
-//                .category(bookDto.getCategory())
-//                .pages(bookDto.getPages())
-//                .forKids(bookDto.getForKids())
-//                .author(bookDto.getAuthor())
-//                .build();
-//        bookDao.saveBook(book);
-//        authorService.createAuthor(book);
-//    }
+    public void createBook(BookDto bookDto, Author author) {
+        Book book = Book.builder()
+                .title(bookDto.getTitle())
+                .category(bookDto.getCategory())
+                .pages(bookDto.getPages())
+                .forKids(bookDto.getForKids())
+                .isBorrow(false)
+                .isReturned(true)
+                .author(author)
+                .build();
+        bookRepository.save(book);
+    }
 }
