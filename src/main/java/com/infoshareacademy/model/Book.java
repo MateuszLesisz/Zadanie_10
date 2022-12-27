@@ -41,8 +41,7 @@ public class Book {
     private boolean isBorrow;
 
     @Column
-    @NotNull
-    private boolean isReturned;
+    private Boolean isReturned;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
