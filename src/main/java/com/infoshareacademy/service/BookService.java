@@ -36,4 +36,8 @@ public class BookService {
         return bookRepository.findBookByAuthorName(author);
     }
 
+    public Book findByTitle(String title) {
+        return bookRepository.findBookByTitle(title);
+    }
+
 }
