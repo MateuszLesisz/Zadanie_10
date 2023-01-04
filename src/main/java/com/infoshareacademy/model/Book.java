@@ -38,7 +38,7 @@ public class Book {
 
     @Column
     @NotNull
-    private boolean isBorrow;
+    private Boolean isBorrow;
 
     @Column
     private Boolean isReturned;

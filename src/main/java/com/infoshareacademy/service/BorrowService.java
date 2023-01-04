@@ -28,7 +28,7 @@ public class BorrowService {
 
     public Borrow borrowBookByClient(Long bookId, Long clientId) {
         Book book = bookRepository.findBookById(bookId);
-        book.setBorrow(true);
+        book.setIsBorrow(true);
         book.setIsReturned(false);
         bookRepository.save(book);
         Client client = clientRepository.findClientById(clientId);

@@ -1,6 +1,7 @@
 package com.infoshareacademy.service;
 
 import com.infoshareacademy.dto.ClientDto;
+import com.infoshareacademy.model.Book;
 import com.infoshareacademy.model.Client;
 import com.infoshareacademy.repository.ClientRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ public class ClientService {
 
         Client clientCreator = Client.builder()
                 .name(clientDto.getName())
+                .book(null)
                 .build();
         return clientRepository.save(clientCreator);
     }
