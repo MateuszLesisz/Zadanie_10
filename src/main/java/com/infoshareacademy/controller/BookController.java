@@ -24,7 +24,7 @@ public class BookController {
     @PostMapping("book/new")
     ResponseEntity<Book> addBook(@RequestBody BookDto bookDto) {
         return ResponseEntity.accepted().body(bookService.createBook(new BookDto(bookDto.getTitle(), bookDto.getCategory(), bookDto.getPages(), bookDto.getForKids(),
-                bookDto.getIsBorrow(), bookDto.getIsReturned(), bookDto.getAuthorName()), new AuthorDto(bookDto.getAuthorName().getName()), null));
+                bookDto.getIsBorrow(), bookDto.getIsReturned(), bookDto.getAuthorName()), new AuthorDto(bookDto.getAuthorName().getName())));
     }
 
     @GetMapping("book/author/{author}")
@@ -35,5 +35,10 @@ public class BookController {
     @GetMapping("book/{title}")
         ResponseEntity<Book> getBookByTitle(@PathVariable String title) {
         return ResponseEntity.ok(bookService.findByTitle(title));
+    }
+
+    @GetMapping("book/borrow/{bookId}/{clientId}")
+    ResponseEntity<Book> borrowBook(@PathVariable Long bookId, @PathVariable Long clientId) {
+        return ResponseEntity.ok(bookService.borrowBook(bookId, clientId));
     }
 }
