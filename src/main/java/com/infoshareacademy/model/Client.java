@@ -21,8 +21,4 @@ public class Client {
     @Column
     @NotNull
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
 }

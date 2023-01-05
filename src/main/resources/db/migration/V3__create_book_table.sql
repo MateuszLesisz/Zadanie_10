@@ -6,7 +6,11 @@ create table book
     pages     int          not null,
     for_kids  varchar(3)   not null,
     author_id bigint       not null,
+    client_id bigint       not null,
     CONSTRAINT `fk_book_author_id`
         FOREIGN KEY (author_id)
-            REFERENCES `library`.`author` (id)
+            REFERENCES `library`.`author` (id),
+    CONSTRAINT `fk_book_client_id`
+        FOREIGN KEY (client_id)
+            REFERENCES `library`.`client` (id)
 );

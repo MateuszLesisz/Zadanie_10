@@ -2,6 +2,7 @@ package com.infoshareacademy.service;
 
 import com.infoshareacademy.dto.AuthorDto;
 import com.infoshareacademy.dto.BookDto;
+import com.infoshareacademy.dto.ClientDto;
 import com.infoshareacademy.model.Author;
 import com.infoshareacademy.model.Book;
 import com.infoshareacademy.repository.AuthorRepository;
@@ -19,7 +20,7 @@ public class BookService {
     private final BookRepository bookRepository;
     private final AuthorService authorService;
 
-    public Book createBook(BookDto bookDto, AuthorDto authorDto) {
+    public Book createBook(BookDto bookDto, AuthorDto authorDto, ClientDto clientDto) {
         Book book = Book.builder()
                 .title(bookDto.getTitle())
                 .category(bookDto.getCategory())
@@ -28,6 +29,7 @@ public class BookService {
                 .isBorrow(false)
                 .isReturned(null)
                 .author(authorService.createAuthor(authorDto))
+                .client(null)
                 .build();
        return bookRepository.save(book);
     }

@@ -17,7 +17,6 @@ public class ClientService {
 
         Client clientCreator = Client.builder()
                 .name(clientDto.getName())
-                .book(null)
                 .build();
         return clientRepository.save(clientCreator);
     }
