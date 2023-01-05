@@ -41,4 +41,9 @@ public class BookController {
     ResponseEntity<Book> borrowBook(@PathVariable Long bookId, @PathVariable Long clientId) {
         return ResponseEntity.ok(bookService.borrowBook(bookId, clientId));
     }
+
+    @GetMapping("books/{clientId}")
+    ResponseEntity<List<Book>> borrowedBooks(@PathVariable Long clientId) {
+        return ResponseEntity.ok(bookService.findBorrowBooks(clientId));
+    }
 }

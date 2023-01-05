@@ -31,7 +31,7 @@ public class BookService {
                 .pages(bookDto.getPages())
                 .forKids(bookDto.getForKids())
                 .isBorrow(false)
-                .isReturned(null)
+                .isReturned(true)
                 .author(authorService.createAuthor(authorDto))
                 .client(null)
                 .build();
@@ -52,6 +52,10 @@ public class BookService {
         book.setIsReturned(false);
         book.setClient(clientRepository.findClientById(clientId));
         return bookRepository.save(book);
+    }
+
+    public List<Book> findBorrowBooks(Long clientId) {
+        return bookRepository.findBookByClientId(clientId);
     }
 
 }
