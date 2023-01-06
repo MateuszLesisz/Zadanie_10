@@ -9,6 +9,8 @@ import com.infoshareacademy.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class BorrowService {
@@ -24,5 +26,9 @@ public class BorrowService {
                 .isReturned(false)
                 .build();
         return borrowRepository.save(borrow);
+    }
+
+    public List<Borrow> findClientBorrowBooks(Long clientId, Boolean isReturned) {
+        return borrowRepository.findBorrowByClientIdAndIsReturned(clientId, isReturned);
     }
 }
