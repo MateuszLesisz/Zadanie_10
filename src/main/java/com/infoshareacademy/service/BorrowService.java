@@ -31,4 +31,10 @@ public class BorrowService {
     public List<Borrow> findClientBorrowBooks(Long clientId, Boolean isReturned) {
         return borrowRepository.findBorrowByClientIdAndIsReturned(clientId, isReturned);
     }
+
+    public Borrow returnBook(Long bookId) {
+       Borrow borrow = borrowRepository.findBorrowByBookId(bookId);
+       borrow.setIsReturned(true);
+       return borrowRepository.save(borrow);
+    }
 }

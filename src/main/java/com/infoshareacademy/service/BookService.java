@@ -28,7 +28,6 @@ public class BookService {
                 .category(bookDto.getCategory())
                 .pages(bookDto.getPages())
                 .forKids(bookDto.getForKids())
-                .isBorrow(false)
                 .author(authorService.createAuthor(authorDto))
                 .build();
        return bookRepository.save(book);

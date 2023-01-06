@@ -27,4 +27,9 @@ public class BorrowController {
     ResponseEntity<List<Borrow>> getBorrowBooks(@PathVariable Long clientId, @PathVariable Boolean isReturned) {
         return ResponseEntity.ok(borrowService.findClientBorrowBooks(clientId, isReturned));
     }
+
+    @GetMapping("borrow/{bookId}")
+    ResponseEntity<Borrow> getBorrowBooks(@PathVariable Long bookId) {
+        return ResponseEntity.ok(borrowService.returnBook(bookId));
+    }
 }

@@ -36,10 +36,6 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private ForKids forKids;
 
-    @Column
-    @NotNull
-    private Boolean isBorrow;
-
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
