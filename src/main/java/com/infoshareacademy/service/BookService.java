@@ -22,8 +22,6 @@ public class BookService {
     private final BookRepository bookRepository;
     private final AuthorService authorService;
 
-    private final ClientRepository clientRepository;
-
     public Book createBook(BookDto bookDto, AuthorDto authorDto) {
         Book book = Book.builder()
                 .title(bookDto.getTitle())

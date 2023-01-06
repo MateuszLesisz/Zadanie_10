@@ -24,7 +24,7 @@ public class BookController {
     @PostMapping("book/new")
     ResponseEntity<Book> addBook(@RequestBody BookDto bookDto) {
         return ResponseEntity.accepted().body(bookService.createBook(new BookDto(bookDto.getTitle(), bookDto.getCategory(), bookDto.getPages(), bookDto.getForKids(),
-                bookDto.getIsBorrow(), bookDto.getIsReturned(), bookDto.getAuthorName()), new AuthorDto(bookDto.getAuthorName().getName())));
+                bookDto.getIsBorrow(), bookDto.getAuthorName()), new AuthorDto(bookDto.getAuthorName().getName())));
     }
 
     @GetMapping("book/author/{author}")

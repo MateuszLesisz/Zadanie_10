@@ -16,6 +16,5 @@ public class BookDto {
     private int pages;
     private ForKids forKids;
     private Boolean isBorrow;
-    private Boolean isReturned;
     private AuthorDto authorName;
 }
