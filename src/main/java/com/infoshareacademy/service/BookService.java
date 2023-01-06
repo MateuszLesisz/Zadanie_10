@@ -31,9 +31,7 @@ public class BookService {
                 .pages(bookDto.getPages())
                 .forKids(bookDto.getForKids())
                 .isBorrow(false)
-                .isReturned(true)
                 .author(authorService.createAuthor(authorDto))
-                .client(null)
                 .build();
        return bookRepository.save(book);
     }
@@ -44,18 +42,6 @@ public class BookService {
 
     public Book findByTitle(String title) {
         return bookRepository.findBookByTitle(title);
-    }
-
-    public Book borrowBook(Long bookId, Long clientId) {
-        Book book = bookRepository.findBookById(bookId);
-        book.setIsBorrow(true);
-        book.setIsReturned(false);
-        book.setClient(clientRepository.findClientById(clientId));
-        return bookRepository.save(book);
-    }
-
-    public List<Book> findBorrowBooks(Long clientId) {
-        return bookRepository.findBookByClientId(clientId);
     }
 
 }

@@ -40,15 +40,8 @@ public class Book {
     @NotNull
     private Boolean isBorrow;
 
-    @Column
-    private Boolean isReturned;
-
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
-
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
 
 }
