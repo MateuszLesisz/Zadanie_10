@@ -9,6 +9,7 @@ import com.infoshareacademy.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -24,6 +25,7 @@ public class BorrowService {
                 .client(clientRepository.findClientById(clientId))
                 .book(bookRepository.findBookById(bookId))
                 .isReturned(false)
+                .borrowDate(LocalDate.now())
                 .build();
         return borrowRepository.save(borrow);
     }

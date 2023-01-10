@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @AllArgsConstructor
@@ -21,6 +22,10 @@ public class Borrow {
     @Column
     @NotNull
     private Boolean isReturned;
+
+    @Column
+    @NotNull
+    private LocalDate borrowDate;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
